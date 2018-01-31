@@ -14,7 +14,7 @@ df_post = data_str.merge(data_ta_post, left_on = ["SHARE ID", "date_month"], rig
 df_stay = data_str.merge(data_ta_stay, left_on = ["SHARE ID", "date_month"], right_on = ["shareid", "stay_month"], how = "left")
 
 df_post = df_post [df_post["shareid"] !=0]
-df_stay = df_post [df_stay["shareid"] !=0]
+df_stay = df_stay [df_stay["shareid"] !=0]
 
 
 def Myfillna (data_frame):
