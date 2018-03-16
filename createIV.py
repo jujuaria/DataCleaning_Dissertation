@@ -39,7 +39,7 @@ class gen_IV():
         df ["value_mean"] = df ["value_mean"].replace(0,np.NaN)
         df ["month_rating_mean"] = df ["month_rating_mean"].replace(0,np.NaN)
         df ["accum_rating"] = df ["accum_rating"].replace(0,np.NaN)
-    
+        df ["Chain"] = df ["accum_rating"].replace(np.NaN,0)
         return self.data
         
     #### Calculate market share in each city
@@ -99,6 +99,7 @@ class gen_IV():
                      l3=[]
                      for name, b in brands:
                          b["adr_class_brand"] = b["ADR"].mean()
+                         b["num_hotels_class_brand"] = b["shareid"].nunique()
                          l3.append(b)
                      c = pd.concat(l3, axis =0)
                      
